@@ -2,6 +2,11 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131118) 
 
+### 회고
+처음엔 리뷰가 없는 식당도 출력해야 한다는 생각으로 INNER JOIN 대신 LEFT JOIN을 쓰고, 리뷰 없는 식당의 평균점수를 나타날 때 생기는 NULL값을 처리하는 IFNULL 함수와 함께 사용하여 답안을 작성했더니 틀렸다고 나왔다. 
+그래서 INNER JOIN으로 바꿔서 IFNULL 함수도 제거하고(왜냐하면 INNER JOIN으로 하면 NULL값이 생기지 않기 때문임) 제출하니 정답이 나왔다.
+다음에는 NULL처리에 대해 어떻게 처리할 지에 대해 명시한 바가 없으면 그냥 INNER JOIN으로 풀어야 겠다. 
+
 ### 성능 요약
 
 메모리: 0.0 MB, 시간: 0.00 ms
