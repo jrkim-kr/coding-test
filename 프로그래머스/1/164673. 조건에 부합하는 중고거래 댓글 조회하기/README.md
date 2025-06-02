@@ -2,6 +2,9 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164673) 
 
+### 회고
+> USING 사용 시 컬럼명에 꼭 ()로 감싸줘야 한다.
+
 ### 성능 요약
 
 메모리: 0.0 MB, 시간: 0.00 ms
