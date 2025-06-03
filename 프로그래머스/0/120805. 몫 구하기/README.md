@@ -2,6 +2,23 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120805) 
 
+### 회고
+
+> 자바에서 % 를 이용해서 나머지를 구한다.
+> 
+> 하지만 몫을 구하는 산술연산자는 없다.
+> 
+> 자바에서 몫을 구하는 일반적인 방법은 아래와 같이 **/ 로 나눗셈을 구한 다음에 정수형으로(int) 변환**하는 것이다.
+> 
+```java
+class Solution {
+    public int solution(int num1, int num2) {
+        int answer = num1 / num2;
+        return answer;
+    }
+}
+```
+
 ### 성능 요약
 
 메모리: 75.1 MB, 시간: 0.02 ms
