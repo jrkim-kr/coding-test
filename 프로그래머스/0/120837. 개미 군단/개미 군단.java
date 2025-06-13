@@ -1,6 +1,5 @@
 class Solution {
     public int solution(int hp) {
-        int answer = (hp % 5 == 0) ? hp / 5 : (hp % 5 % 3 == 0) ? hp / 5 + hp % 5 / 3 : hp / 5 + hp % 5 / 3 + hp % 5 % 3 / 1;
-        return answer;
+        return hp / 5 + hp % 5 / 3 + hp % 5 % 3 / 1;
     }
 }
