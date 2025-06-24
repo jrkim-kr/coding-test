@@ -1,11 +1,11 @@
 class Solution {
     public String solution(String cipher, int code) {
         String answer = "";
-        for (int i = 0; i < cipher.length(); i ++) {
-            if ((i + 1) % code == 0) {
-                answer += String.valueOf(cipher.charAt(i));
-            }
+
+        for (int i = code; i <= cipher.length(); i = i + code) {
+            answer += cipher.substring(i - 1, i);
         }
+
         return answer;
     }
 }
