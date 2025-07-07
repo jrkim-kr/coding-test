@@ -1,10 +1,8 @@
-import java.util.stream.Collectors;
+import java.util.*;
 class Solution {
     public String solution(String my_string) {
-        return my_string.toLowerCase()
-                        .chars()
-                        .sorted()
-                        .mapToObj(c -> String.valueOf((char) c))
-                        .collect(Collectors.joining());
+        char[] charArr = my_string.toLowerCase().toCharArray();
+        Arrays.sort(charArr);
+        return new String(charArr);
     }
 }
