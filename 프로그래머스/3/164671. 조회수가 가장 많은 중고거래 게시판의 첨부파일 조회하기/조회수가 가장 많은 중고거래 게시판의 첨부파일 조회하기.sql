@@ -2,9 +2,7 @@ SELECT CONCAT("/home/grep/src/", board_id, "/", file_id, file_name, file_ext) AS
 FROM used_goods_board b
 JOIN used_goods_file f
 USING (board_id)
-WHERE board_id = 
-    (SELECT board_id
-    FROM used_goods_board
-    ORDER BY views DESC
-    LIMIT 1)
+WHERE views = 
+    (SELECT MAX(views)
+    FROM used_goods_board)
 ORDER BY file_id DESC
