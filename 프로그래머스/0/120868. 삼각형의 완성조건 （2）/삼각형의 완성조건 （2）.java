@@ -1,22 +1,18 @@
-import java.util.*;
-
 class Solution {
     public int solution(int[] sides) {
-        int answer = 0;
-        Arrays.sort(sides);
-        
-        // 배열에 가장 긴 변이 있는 경우
-        for (int i = 1; i <= sides[1]; i++) {
-            if (sides[0] + i > sides[1]) {
-                answer++;
-            }               
-        }      
-            
-        // 배열에 가장 긴 변이 없는 경우
-        for (int i = sides[1] + 1; i < sides[0] + sides[1]; i++) {
-            answer++;
-        }
-        
-        return answer;
+        int max = Math.max(sides[0], sides[1]);
+        int min = Math.min(sides[0], sides[1]);
+
+        // 경우 1: 주어진 두 변 중 하나가 가장 긴 변
+        // max - min < x < max + min
+        // x <= max (max가 가장 긴 변이므로)
+        // 즉, max - min < x <= max
+        int case1 = max - (max - min);  // = min
+
+        // 경우 2: 세 번째 변이 가장 긴 변
+        // max < x < max + min
+        int case2 = (max + min - 1) - max;  // = min - 1
+
+        return case1 + case2;
     }
 }
