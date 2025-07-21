@@ -2,8 +2,8 @@ class Solution {
     public int solution(int i, int j, int k) {
         int answer = 0;
         for (int n = i; n <= j; n++) {
-            if (Integer.toString(n).contains(Integer.toString(k))) {
-                answer += Integer.toString(n).length() - Integer.toString(n).replace(Integer.toString(k), "").length();
+            if (String.valueOf(n).contains(String.valueOf(k))) {
+                answer += String.valueOf(n).length() - String.valueOf(n).replace(String.valueOf(k), "").length();
             }
         }
         return answer;
