@@ -1,9 +1,5 @@
-SELECT 
-    child.ID,
-    child.GENOTYPE,
-    parent.GENOTYPE AS PARENT_GENOTYPE
-FROM ecoli_data child                    -- 자식을 메인 테이블로 설정
-JOIN ecoli_data parent                   -- 부모를 조인 테이블로 설정
-ON child.PARENT_ID = parent.ID           -- 자식의 PARENT_ID로 부모 찾기
-WHERE (child.GENOTYPE & parent.GENOTYPE) = parent.GENOTYPE  -- 형질 포함 확인
-ORDER BY child.ID;
+SELECT c.id, c.genotype, p.genotype AS parent_genotype
+FROM ecoli_data p
+LEFT JOIN ecoli_data c
+    ON p.id = c.parent_id
+WHERE c.genotype & p.genotype = p.genotype
