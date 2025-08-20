@@ -1,7 +1,6 @@
-SELECT parent.id, 
-       COUNT(child.id) child_count
-FROM ecoli_data parent
-LEFT JOIN ecoli_data child 
-ON parent.id = child.parent_id
-GROUP BY parent.id
-ORDER BY parent.id
+SELECT p.id, IFNULL(COUNT(c.id), 0) AS child_count
+FROM ecoli_data p
+LEFT JOIN ecoli_data c
+    ON p.id = c.parent_id
+GROUP BY p.id
+ORDER BY p.id ASC
