@@ -1,6 +1,14 @@
-SELECT e3.ID
-FROM ECOLI_DATA e1  -- 1세대 (조부모)
-INNER JOIN ECOLI_DATA e2 ON e1.ID = e2.PARENT_ID  -- 2세대 (부모)
-INNER JOIN ECOLI_DATA e3 ON e2.ID = e3.PARENT_ID  -- 3세대 (자식)
-WHERE e1.PARENT_ID IS NULL  -- 1세대 조건
-ORDER BY e3.ID;
+WITH RECURSIVE cte AS (
+    SELECT id, parent_id, 1 AS generation
+    FROM ecoli_data
+    WHERE parent_id IS NULL
+    UNION ALL
+    SELECT e.id, e.parent_id, c.generation + 1
+    FROM ecoli_data e
+    JOIN cte c ON c.id = e.parent_id
+    )
+
+SELECT c.id
+FROM cte c
+WHERE c.generation = 3
+ORDER BY c.id ASC
